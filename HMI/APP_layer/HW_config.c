@@ -6,12 +6,53 @@
  */
 
 #include "HMI_utility_functions.h"
-
-CHconfig_t buzzer = {portD , pin7 , output , none};
-uartConfig_t uart = {asynchronous , Disabled , _1bit , _8bit , UARTrising , 9600};
-EINT_t downbutton = {E_INT1 , falling , internal_pullup , movedown};
-EINT_t upbutton = {E_INT0 , falling , internal_pullup , moveup};
-EINT_t selectbutton = {E_INT2 , falling , internal_pullup , select};
+/*----------------------------------------------------------------
+ * buzzer hardware configuration
+ *---------------------------------------------------------------- */
+CHconfig_t buzzer = {
+		.PORT 				=  portD ,
+		.channel_num 		= pin7 ,
+		.direction 			= output ,
+		.internal_resistor 	= none
+};
+/*----------------------------------------------------------------
+ * UART peripheral configuration
+ *---------------------------------------------------------------- */
+uartConfig_t uart = {
+		.mode 		= asynchronous ,
+		.parity 	= Disabled ,
+		.stop_num 	= _1bit ,
+		.char_size 	= _8bit ,
+		.polarity 	= UARTrising ,
+		.baudrate 	= 9600
+};
+/*----------------------------------------------------------------
+ * down button external interrupt  hardware configuration
+ *------------------------------------------------------------- */
+EINT_t downbutton = {
+		.ch = E_INT1 ,
+		.INT_SC = falling ,
+		.internal_resistor = internal_pullup ,
+		.INT_handler = movedown
+};
+/*----------------------------------------------------------------
+ * up button external interrupt  hardware configuration
+ *------------------------------------------------------------- */
+EINT_t upbutton = {
+		.ch = E_INT0 ,
+		.INT_SC = falling ,
+		.internal_resistor = internal_pullup ,
+		.INT_handler = moveup
+};
+/*----------------------------------------------------------------
+ * select button external interrupt  hardware configuration
+ *------------------------------------------------------------- */
+EINT_t selectbutton = {
+		.ch = E_INT2 ,
+		.INT_SC = falling ,
+		.internal_resistor = internal_pullup ,
+		.INT_handler = select
+};
 
 
 
