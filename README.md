@@ -6,8 +6,3 @@ the layers named as :
 1. MCAL (microcontroller abstraction layer)
 2. HWAL (hardware abstraction layer)
 3. APP  (application layer)
-# get started
-
-https://soundcloud.com/decapmusic/1ne
-
-[[https://soundcloud.com/decapmusic/1ne]](https://soundcloud.com/decapmusic/1ne)
